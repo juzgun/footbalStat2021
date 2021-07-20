@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import CommandDates from './components/CommandDates/CommandDates';
+import Commands from './components/CommandsPage/Commands';
+import Header from './components/Header/Header';
+import LeagueDates from './components/LeagueDates/LeagueDates';
+import Leagues from './components/LeaguesPage/Leagues';
+import Sidebar from './components/Sidebar/Sidebar';
 
-function App() {
+
+
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter BrowserRouter >
+      <div className='flex appWrapper'>
+        <Header />
+        <Sidebar />
+        <Route path="/commands" render={() => <Commands />} />
+        <Route path="/commandDates" render={() => <CommandDates />} />
+        <Route path="/leagueDates" render={() => <LeagueDates />} />
+        <Route path="/leagues" render={() => <Leagues />} />
+      </div>
+    </BrowserRouter >
   );
 }
 

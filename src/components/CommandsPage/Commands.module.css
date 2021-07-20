@@ -1,0 +1,33 @@
+.commands, .commandsItem {
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    -webkit-box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
+    -moz-box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
+    box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
+}
+
+.commands {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 174, 174);
+    margin: 0 0 10px 10px;
+    width: 930px;
+}
+
+.commandsItem {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 229, 255);
+    margin: 10px;
+    width: 400px;
+}
+
+.commandsTitle {
+    width: 900px;
+    height: 20px;
+}
+

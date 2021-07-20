@@ -1,0 +1,19 @@
+.sidebar {
+    width: 260px;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    border-radius: 12px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.sidebarItem {
+    width: 240px;
+    height: 8vh;
+    margin: 10px;
+    background-color: rgb(217, 11, 45);
+    border-radius: 8px;
+}
