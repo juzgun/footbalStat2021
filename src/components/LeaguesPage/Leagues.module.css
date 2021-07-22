@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: flex-start;
     flex-wrap: wrap;
     background-color: rgb(255, 174, 174);
-    margin: 0 0 0 10px;
-    width: 930px;
+    margin: 10px;
+    width: 1180px;
     height: 89vh;
     border-radius: 12px;
     -webkit-border-radius: 12px;
@@ -23,15 +24,10 @@
 
 .leaguesTitle {
     width: 800px;
-    height: 15vh;
-    margin: 2vh;
-    background-color: yellowgreen;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    -webkit-box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
-    -moz-box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
-    box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
+    height: 30px;
+    margin: 1vh;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+    line-height: 30px;
 }

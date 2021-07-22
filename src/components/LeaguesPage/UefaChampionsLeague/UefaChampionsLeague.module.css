@@ -1,10 +1,4 @@
-.uefaChampionsLeague {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(200, 0, 0);
-    margin: 0 0 0 10px;
-    width: 350px;
-    height: 20vh;
+.uefaChampionsLeague, .uefaChampionsLeagueLink, .uefaChampionsLeagueStat {
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
@@ -14,3 +8,45 @@
     -moz-box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
     box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
 }
+
+.uefaChampionsLeague {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    margin: 0 0 0 10px;
+    width: 350px;
+    height: 38vh;
+}
+
+.uefaChampionsLeague img {
+    width: 200px;
+}
+
+.uefaChampionsLeagueTitle {
+    display: block;
+    width: 330px;
+    height: 30px;
+    text-align: center;
+}
+
+.uefaChampionsLeagueLink, .uefaChampionsLeagueStat {
+    display: block;
+    width: 150px;
+    height: 30px;
+    margin: 10px;
+    text-align: center;
+    background-color: rgb(255, 251, 31);
+    text-decoration: none;
+    color: #000;
+}
+
+.uefaChampionsLeagueStat {
+    width: 300px;
+}
+
+.uefaChampionsLeague a {
+    text-decoration: none;
+}
+
