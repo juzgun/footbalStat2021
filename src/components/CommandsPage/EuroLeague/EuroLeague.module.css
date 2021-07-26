@@ -14,8 +14,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: rgb(255, 174, 174);
-    margin: 0 0 10px 10px;
-    width: 930px;
+    margin: 10px;
+    width: 1180px;
 }
 
 .euroLeagueItem {

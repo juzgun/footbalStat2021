@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { CLYears, ECYears } from '../../../redux/state';
+import { CLYears, ECYears, CLMatchesYears, ECMatchesYears } from '../../../redux/state';
 import classes from "./Seasons.module.css"
 
 const Seasons = (props) => {
@@ -12,8 +12,10 @@ const Seasons = (props) => {
                     Seasons
                 </div>
                 <Switch>
-                    <Route exact path="/leagueMatches/CL" render={() => <CLYears />} />
-                    <Route path="/leagueMatches/EC" render={() => <ECYears />} />
+                    <Route path="/leagueMatches/CL" render={() => <CLMatchesYears />} />
+                    <Route path="/leagueMatches/EC" render={() => <ECMatchesYears />} />
+                    <Route path="/commands/chamionleague/" render={() => <CLYears season="2021" />} />
+                    <Route path="/commands/eurochampionats/" render={() => <ECYears season="2021" />} />
                 </Switch>
 
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from "./UefaLeague.module.css"
 import { CLCommands } from './../../../redux/state';
+import Seasons from '../../LeagueStat/Sesons/Seasons';
 
 
 const UefaLeague = (props) => {
@@ -9,10 +10,11 @@ const UefaLeague = (props) => {
             <div className={classes.uefaLeagueTitle}>
                 Список Команд
             </div>
+            <Seasons />
             <div className={classes.uefaLeagueItem}>
                 Uefa Champions League
                 <div>
-                    <CLCommands />
+                    <CLCommands season="2020"/>
                 </div>
             </div>
         </div>

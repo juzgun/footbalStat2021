@@ -1,6 +1,7 @@
 import React from 'react';
-import { TeamMatshesData } from '../../redux/state';
+import { TeamMatshesData } from '../../redux/TeamMatchesData/TeamMatchesData';
 import classes from "./CommandDates.module.css"
+
 
 
 const CommandDates = (props) => {
@@ -8,7 +9,7 @@ const CommandDates = (props) => {
         <div className={classes.commandDates}>
             Календарь Команды
             <div className={classes.commandDatesItem}>
-                <TeamMatshesData />
+                <TeamMatshesData teamid="610" />
             </div>
         </div>
     );

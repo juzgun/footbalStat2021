@@ -2,19 +2,38 @@ import React, { Component } from 'react';
 import './state.css';
 import { NavLink } from 'react-router-dom';
 import classes from './state.css'
+import { TeamMatshesData } from './TeamMatchesData/TeamMatchesData';
+
+let changeTeamsEc = (data) => {
+    return <EuroCommands season={data} />
+}
+
+let changeTeamsCl = (data) => {
+    return <CLCommands season={data} />
+}
+
+export let showTeamMatchesEc = (data) => {
+    return <TeamMatshesData teamid={data} />
+}
+
+export let showTeamMatchesCl = (data) => {
+    return <TeamMatshesData teamid={data} />
+}
 
 export class CLCommands extends Component {
     constructor(props) {
         super(props);
+        this.teamLink = React.createRef();
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            season: props.season
         };
     }
 
     async componentDidMount() {
-        await fetch("https://api.football-data.org/v2/competitions/CL/teams", {
+        await fetch(`https://api.football-data.org/v2/competitions/CL/teams?seasons=${this.state.season}`, {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
             .then(res => res.json())
@@ -36,6 +55,7 @@ export class CLCommands extends Component {
 
     render() {
         const { error, isLoaded, items } = this.state;
+
         if (error) {
             return <p>` Error {error.message} `</p>
         } else if (!isLoaded) {
@@ -43,12 +63,23 @@ export class CLCommands extends Component {
         } else {
             return (
                 <ul>
-                    {items.map(item => (
-                        <li key={item.name}>
-                            {item.name}
-                        </li>
-                    ))}
-                </ul>
+                    {
+                        items.map(item => (
+                            <li key={item.name}>
+                                {item.name}
+                                {console.log(item.id)}
+                                <NavLink to={`/commandDates/${item.id}`} data={item.id} season={item.name}>
+                                    <button
+                                        data={item.id}
+                                        ref={this.teamLink}
+                                        onClick={showTeamMatchesCl(item.id)}>
+                                        Матчи
+                                    </button>
+                                </NavLink>
+                            </li>
+                        ))
+                    }
+                </ul >
             )
         }
     }
@@ -60,12 +91,13 @@ export class EuroCommands extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            season: props.season
         };
     }
 
     async componentDidMount() {
-        await fetch("https://api.football-data.org/v2/competitions/EC/teams", {
+        await fetch(`https://api.football-data.org/v2/competitions/EC/teams?seasons=${this.state.season}`, {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
             .then(res => res.json())
@@ -97,67 +129,15 @@ export class EuroCommands extends Component {
                     {items.map(item => (
                         <li key={item.name}>
                             {item.name}
+                            <NavLink to={`/commandDates/${item.id}`} data={item.id}>
+                                <button
+                                    data={item.id}
+                                    ref={this.teamLink}
+                                    onClick={showTeamMatchesEc(item.id)}>
+                                    Матчи
+                                </button>
+                            </NavLink>
                         </li>
-                    ))}
-                </ul>
-            )
-        }
-    }
-}
-
-
-export class CLCommand extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            items: []
-        };
-    }
-
-    async componentDidMount() {
-        await fetch("https://api.football-data.org/v2/competitions/CL/teams", {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
-        })
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.teams
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
-
-    render() {
-        const { error, isLoaded, items } = this.state;
-        if (error) {
-            return <p>` Error {error.message} `</p>
-        } else if (!isLoaded) {
-            return <p>` Loading... `</p>
-        } else {
-            return (
-                <ul>
-                    {items.map(item => (
-
-                        <NavLink to='/commands/chamionleague/team/' activeClassName={classes.activeLink}>
-                            <li key={item.name}>
-                                <div key={item.id}>
-                                    <div data-id={item.id}>
-                                        {item.name}
-                                    </div>
-                                </div>
-                            </li>
-                        </NavLink>
-
                     ))
                     }
                 </ul >
@@ -166,18 +146,22 @@ export class CLCommand extends Component {
     }
 }
 
+
 export class ECYears extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            season: props.season
         };
     }
 
+
     async componentDidMount() {
-        await fetch("https://api.football-data.org/v2/competitions/EC", {
+        await fetch('https://api.football-data.org/v2/competitions/EC', {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
             .then(res => res.json())
@@ -197,6 +181,7 @@ export class ECYears extends Component {
             )
     }
 
+
     render() {
         const { error, isLoaded, items } = this.state;
         if (error) {
@@ -208,7 +193,11 @@ export class ECYears extends Component {
                 <ul>
                     {items.map(item => (
                         <li key={item.startDate}>
-                            <button>{item.startDate.slice(0, 4)}</button>
+                            <NavLink to={`/commands/eurochampionats/${item.startDate.slice(0, 4)}`}>
+                                <button data={item.startDate.slice(0, 4)} onClick={changeTeamsEc(item.startDate.slice(0, 4))}>
+                                    {item.startDate.slice(0, 4)}
+                                </button>
+                            </NavLink>
                         </li>
                     ))}
                 </ul>
@@ -258,9 +247,15 @@ export class CLYears extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <li key={item.startDate}>
-                            <button key={item.endDate}>{item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}</button>
-                        </li>
+                        <div>
+                            <li key={item.startDate}>
+                                <NavLink to={`/commands/chamionleague/${item.startDate.slice(0, 4)}`}>
+                                    <button key={item.endDate} data={item.startDate.slice(0, 4)} onClick={changeTeamsCl(item.startDate.slice(0, 4))}>
+                                        {item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}
+                                    </button>
+                                </NavLink>
+                            </li></div>
+
                     ))}
                 </ul>
             )
@@ -269,7 +264,67 @@ export class CLYears extends Component {
 }
 
 
-export class TeamMatshesData extends Component {
+
+export class ECMatchesYears extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            items: [],
+            season: props.season
+        };
+    }
+
+
+    async componentDidMount() {
+        await fetch('https://api.football-data.org/v2/competitions/EC', {
+            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+        })
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result.seasons
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
+
+
+    render() {
+        const { error, isLoaded, items } = this.state;
+        if (error) {
+            return <p>` Error {error.message} `</p>
+        } else if (!isLoaded) {
+            return <p>` Loading... `</p>
+        } else {
+            return (
+                <ul>
+                    {items.map(item => (
+                        <li key={item.startDate}>
+                            <NavLink to={`/leagueMatches/EC/${item.startDate.slice(0, 4)}`}>
+                                <button data={item.startDate.slice(0, 4)} onClick={changeTeamsEc(item.startDate.slice(0, 4))}>
+                                    {item.startDate.slice(0, 4)}
+                                </button>
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+            )
+        }
+    }
+}
+
+export class CLMatchesYears extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -280,7 +335,7 @@ export class TeamMatshesData extends Component {
     }
 
     async componentDidMount() {
-        await fetch("https://api.football-data.org/v2/teams/674/matches", {
+        await fetch("https://api.football-data.org/v2/competitions/CL", {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
             .then(res => res.json())
@@ -288,7 +343,7 @@ export class TeamMatshesData extends Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.matches
+                        items: result.seasons
                     });
                 },
                 (error) => {
@@ -310,9 +365,15 @@ export class TeamMatshesData extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <li key={item.utcDate}>
-                            <div key={item.awayTeam.name}>Date of match is {item.utcDate.slice(0, 10)} opponent team is {item.awayTeam.name}</div>
-                        </li>
+                        <div>
+                            <li key={item.startDate}>
+                                <NavLink to={`/leagueMatches/CL/${item.startDate.slice(0, 4)}`}>
+                                    <button key={item.endDate} data={item.startDate.slice(0, 4)} onClick={changeTeamsCl(item.startDate.slice(0, 4))}>
+                                        {item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}
+                                    </button>
+                                </NavLink>
+                            </li></div>
+
                     ))}
                 </ul>
             )
