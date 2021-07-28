@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "./EuroLeague.module.css"
-import { EuroCommands } from './../../../redux/state';
+import EuroCommands from './EuroCommands/EuroCommands';
 import Seasons from './../../LeagueStat/Sesons/Seasons';
 
 
@@ -10,11 +10,13 @@ const EuroLeague = (props) => {
             <div className={classes.euroLeagueTitle}>
                 Список Команд
             </div>
-            <Seasons />
+            <Seasons
+                season={props.season}
+                changeTeamsEc={props.changeTeamsEc} />
             <div className={classes.euroLeagueItem}>
                 European Chanpionship
                 <div>
-                    <EuroCommands season="2020" />
+                    <EuroCommands season={props.season} showTeamMatches={props.showTeamMatches} />
                 </div>
             </div>
         </div>

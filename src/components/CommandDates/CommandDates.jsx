@@ -1,5 +1,5 @@
 import React from 'react';
-import { TeamMatshesData } from '../../redux/TeamMatchesData/TeamMatchesData';
+import TeamMatshesData from './TeamMatchesData/TeamMatchesData';
 import classes from "./CommandDates.module.css"
 
 
@@ -9,7 +9,8 @@ const CommandDates = (props) => {
         <div className={classes.commandDates}>
             Календарь Команды
             <div className={classes.commandDatesItem}>
-                <TeamMatshesData teamid="610" />
+                <TeamMatshesData
+                    teamid={props.teamId} />
             </div>
         </div>
     );

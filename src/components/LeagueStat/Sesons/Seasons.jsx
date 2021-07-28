@@ -1,8 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import { CLYears, ECYears, CLMatchesYears, ECMatchesYears } from '../../../redux/state';
+import ECYears from './ECYears/ECYears';
+import CLYears from './CLYears/CLYears';
 import classes from "./Seasons.module.css"
+import CLMatchesYears from './CLMatchesYears/CLMatchesYears';
+import ECMatchesYears from './ECMatchesYears/ECMatchesYears';
 
 const Seasons = (props) => {
     return (
@@ -12,10 +14,14 @@ const Seasons = (props) => {
                     Seasons
                 </div>
                 <Switch>
-                    <Route path="/leagueMatches/CL" render={() => <CLMatchesYears />} />
-                    <Route path="/leagueMatches/EC" render={() => <ECMatchesYears />} />
-                    <Route path="/commands/chamionleague/" render={() => <CLYears season="2021" />} />
-                    <Route path="/commands/eurochampionats/" render={() => <ECYears season="2021" />} />
+                    <Route path="/leagueMatches/CL" render={() => <CLMatchesYears
+                        changeTeamsCl={props.changeTeamsCl} />} />
+                    <Route path="/leagueMatches/EC" render={() => <ECMatchesYears
+                        changeTeamsEc={props.changeTeamsEc} />} />
+                    <Route path="/commands/chamionleague/" render={() => <CLYears
+                        changeTeamsCl={props.changeTeamsCl} />} />
+                    <Route path="/commands/eurochampionats/" render={() => <ECYears
+                        changeTeamsEc={props.changeTeamsEc} />} />
                 </Switch>
 
             </div>

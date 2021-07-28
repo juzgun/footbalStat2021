@@ -16,12 +16,23 @@ const App = (props) => {
       <Header />
       <Switch>
         <Route exact path="/" render={() => <Leagues />} />
-        <Route path="/commands/eurochampionats" render={() => <EuroLeague />} />
-        <Route path="/commands/chamionleague" render={() => <UefaLeague />} />
-        <Route path="/commandDates" render={() => <CommandDates />} />
+        <Route path="/commands/eurochampionats" render={() => <EuroLeague
+          season={props.state.season}
+          showTeamMatches={props.showTeamMatches}
+          changeTeamsEc={props.changeTeamsEc}
+        />} />
+        <Route path="/commands/chamionleague" render={() => <UefaLeague
+          season={props.state.season}
+          showTeamMatches={props.showTeamMatches}
+          changeTeamsCl={props.changeTeamsCl} />} />
+        <Route path="/commandDates" render={() => <CommandDates teamId={props.state.teamId} />} />
         <Route path="/leagueDates" render={() => <LeagueDates />} />
-        <Route path="/leagueMatches/CL" render={() => <LeagueStat />} />
-        <Route path="/leagueMatches/EC" render={() => <LeagueStat />} />
+        <Route path="/leagueMatches/CL" render={() => <LeagueStat
+          changeTeamsCl={props.changeTeamsCl}
+          season={props.state.season} />} />
+        <Route path="/leagueMatches/EC" render={() => <LeagueStat
+          changeTeamsEc={props.changeTeamsEc}
+          season={props.state.season} />} />
         <Redirect to='/' />
       </Switch>
     </div>
