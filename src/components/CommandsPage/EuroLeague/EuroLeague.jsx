@@ -11,7 +11,6 @@ const EuroLeague = (props) => {
                 Список Команд
             </div>
             <Seasons
-                season={props.season}
                 changeTeamsEc={props.changeTeamsEc} />
             <div className={classes.euroLeagueItem}>
                 European Chanpionship

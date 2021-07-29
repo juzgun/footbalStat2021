@@ -8,11 +8,15 @@ function CLStat(props) {
     let [error, setError] = useState(null);
     let [isLoaded, setIsLoaded] = useState(false);
     let [matches, setMatches] = useState([]);
-    let [season] = useState(props.season);
+    let [season, setSeason] = useState(props.season);
     let [count, setCount] = useState('');
 
+    let changeTeams = (year) => {
+        setSeason(year);
+    };
+
     useEffect(() => {
-        fetch(`https://api.football-data.org/v2/competitions/CL/matches?season=${props.season}`, {
+        fetch(`https://api.football-data.org/v2/competitions/CL/matches?season=${season}`, {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
             .then(res => res.json())
@@ -32,11 +36,11 @@ function CLStat(props) {
         return <p>` Error {error.message} try reload page later `</p>
     } else if (!isLoaded) {
         return <p>` Loading... `</p>
-    } else {
+    } else if (matches) {
         return (
             <div id="match_table" className="match_table">
                 <div className={classes.navbar}>
-                    <Seasons changeTeamsCl={props.changeTeamsCl} />
+                    <Seasons changeTeamsCl={changeTeams} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
                 <table className="table">
@@ -59,7 +63,7 @@ function CLStat(props) {
                                 <td className="matchday">
                                     {item.matchday}
                                 </td>
-                                <td data-toggle="tooltip" data-placement="top" title="UEFA Champions League">
+                                <td data-toggle="tooltip" data-placement="top" title="">
                                     {/* <img className="flag_matchview" src={null} /> */}
                                 </td>
                                 <td className="fixture">
@@ -85,6 +89,33 @@ function CLStat(props) {
                 </table>
             </div>
         );
+    } else {
+        return (
+            <div id="match_table" className="match_table">
+                <div className={classes.navbar}>
+                    <Seasons changeTeamsCl={changeTeams} />
+                </div>
+                <div className={classes.count}>{count} matches in selection</div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>MD</th>
+                            <th></th>
+                            <th>Fixture</th>
+                            <th className="xls-only">Odds(1/x/2)</th><th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tb>Sorry there is no data</tb>
+                        <tb></tb>
+                        <tb></tb>
+                        <tb></tb>
+                        <tb></tb>
+                    </tbody>
+                </table>
+            </div>
+        )
     };
 };
 

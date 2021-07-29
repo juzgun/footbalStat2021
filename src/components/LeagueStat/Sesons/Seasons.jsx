@@ -19,7 +19,7 @@ const Seasons = (props) => {
                     <Route path="/leagueMatches/EC" render={() => <ECMatchesYears
                         changeTeamsEc={props.changeTeamsEc} />} />
                     <Route path="/commands/chamionleague/" render={() => <CLYears
-                        changeTeamsCl={props.changeTeamsCl} />} />
+                        showCommands={props.showCommands} />} />
                     <Route path="/commands/eurochampionats/" render={() => <ECYears
                         changeTeamsEc={props.changeTeamsEc} />} />
                 </Switch>

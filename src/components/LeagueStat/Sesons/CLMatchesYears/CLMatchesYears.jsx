@@ -21,7 +21,6 @@ export default class CLMatchesYears extends Component {
     }
 
     async componentDidMount() {
-        debugger;
         await fetch("https://api.football-data.org/v2/competitions/CL", {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
