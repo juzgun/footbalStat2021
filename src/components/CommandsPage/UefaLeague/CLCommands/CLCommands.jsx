@@ -52,7 +52,7 @@ export default class CLCommands extends Component {
                 <ul>
                     {
                         items.map(item => (
-                            <li key={item.name}>
+                            <li key={item.id}>
                                 {item.name}
                                 <NavLink to={`/commandDates/${item.id}`} data={item.id} season={item.name}>
                                     <button

@@ -49,7 +49,7 @@ export default class ECYears extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <li key={item.startDate}>
+                        <li key={item.id}>
                             <NavLink to={`/commands/eurochampionats/${item.startDate.slice(0, 4)}`}>
                                 <button data-season={Number(item.startDate.slice(0, 4))} onClick={this.changeTeamsEc}>
                                     {item.startDate.slice(0, 4)}

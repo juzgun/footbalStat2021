@@ -53,7 +53,7 @@ export default class EuroCommands extends Component {
                 <ul>
                     {
                         items.map(item => (
-                            <li key={item.name}>
+                            <li key={item.id}>
                                 {item.name}
                                 {console.log(this.state.season)}
                                 <NavLink to={`/commandDates/${item.id}`} data={item.id}>

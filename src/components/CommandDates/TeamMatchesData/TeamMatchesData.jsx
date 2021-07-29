@@ -44,7 +44,7 @@ export default class TeamMatshesData extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <li key={item.utcDate}>
+                        <li key={item.id}>
                             <div key={item.awayTeam.name}>
                                 Date of match is {item.utcDate.slice(0, 10)} between {item.homeTeam.name} and {item.awayTeam.name}. Score:  ( {item.score.fullTime.homeTeam} : {item.score.fullTime.awayTeam} )
                             </div>

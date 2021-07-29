@@ -51,7 +51,7 @@ export default class ECMatchesYears extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <li key={item.startDate}>
+                        <li key={item.id}>
                             <NavLink to={`/leagueMatches/EC/${item.startDate.slice(0, 4)}`}>
                                 <button key={item.endDate} data-season={item.startDate.slice(0, 4)} onClick={this.changeTeamsEc}>
                                     {item.startDate.slice(0, 4)}

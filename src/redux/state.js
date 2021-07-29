@@ -1,28 +1,35 @@
-import './state.css';
-import rerenderEntireTree from '../render';
 
 
-let state = {
-    teamId: '',
-    season: '2019'
-}
+let store = {
+    _state: {
+        teamId: '',
+        season: '2019'
+    },
+    _callSubscriber() {
+        console.log('state was changed')
+    },
+    getState() {
+        return this._state;
+    },
+    changeTeamsEc(season) {
+        this.getState().season = season;
+        this._callSubscriber(this._state);
+    },
 
-window.state = state;
+    changeTeamsCl(season) {
+        this.getState().season = season;
+        this._callSubscriber(this.getState());
+    },
 
-export let changeTeamsEc = (season) => {
-    state.season = season;
-    rerenderEntireTree(state);
-}
+    showTeamMatches(id) {
+        this.getState().teamId = id;
+        this._callSubscriber(this._state);
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    }
+};
 
-export let changeTeamsCl = (season) => {
-    state.season = season;
-    debugger;
-    rerenderEntireTree(state);
-}
+window.store = store;
 
-export let showTeamMatches = (id) => {
-    state.teamId = id;
-    rerenderEntireTree(state);
-}
-
-export default state;
+export default store;

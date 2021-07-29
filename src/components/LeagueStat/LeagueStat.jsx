@@ -9,7 +9,7 @@ const LeagueStat = (props) => {
     return (
         <div id="match_table" className={classes}>
             <Switch>
-                <Route exact path="/leagueMatches/CL" render={() => <CLStat
+                <Route path="/leagueMatches/CL" render={() => <CLStat
                     changeTeamsCl={props.changeTeamsCl}
                     season={props.season} />} />
                 <Route path="/leagueMatches/EC" render={() => <ECStat

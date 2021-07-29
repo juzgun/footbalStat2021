@@ -12,8 +12,10 @@ export default class CLMatchesYears extends Component {
             isLoaded: false,
             items: []
         };
+        // this.changeTeamsCl = (event) => {
+        //     this.props.changeTeamsCl(event.target.dataset.season);
+        // };
         this.changeTeamsCl = (event) => {
-            debugger;
             this.props.changeTeamsCl(event.target.dataset.season);
         };
     }
@@ -39,6 +41,10 @@ export default class CLMatchesYears extends Component {
             )
     }
 
+    changeTeamsCl = (event) => {
+        this.props.changeTeamsCl(event.target.dataset.season);
+    };
+
     render() {
         const { error, isLoaded, items } = this.state;
         if (error) {
@@ -49,8 +55,8 @@ export default class CLMatchesYears extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <div>
-                            <li key={item.startDate}>
+                        <div key={item.id}>
+                            <li>
                                 <NavLink to={`/leagueMatches/CL/${item.startDate.slice(0, 4)}`}>
                                     <button key={item.endDate} data-season={item.startDate.slice(0, 4)} onClick={this.changeTeamsCl}>
                                         {item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}
