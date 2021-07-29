@@ -9,15 +9,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
-        <React.StrictMode>
-            <BrowserRouter>
-                <App
-                    state={store.getState()}
-                    showTeamMatches={store.showTeamMatches.bind(store)}
-                    changeTeamsEc={store.changeTeamsEc.bind(store)}
-                    changeTeamsCl={store.changeTeamsCl.bind(store)} />
-            </BrowserRouter>
-        </React.StrictMode>,
+        <BrowserRouter>
+            <App
+                state={store.getState()}
+                showTeamMatches={store.showTeamMatches.bind(store)}
+                changeTeamsEc={store.changeTeamsEc.bind(store)}
+                changeTeamsCl={store.changeTeamsCl.bind(store)} />
+        </BrowserRouter>,
         document.getElementById('root')
     );
 };

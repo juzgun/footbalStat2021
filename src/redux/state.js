@@ -3,7 +3,7 @@
 let store = {
     _state: {
         teamId: '',
-        season: '2019'
+        season: ''
     },
     _callSubscriber() {
         console.log('state was changed')
