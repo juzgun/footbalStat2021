@@ -3,7 +3,8 @@
 let store = {
     _state: {
         teamId: '',
-        season: '2018'
+        season: '2021',
+        filterDates: ['', '']
     },
     _callSubscriber() {
         console.log('state was changed')
@@ -13,7 +14,7 @@ let store = {
     },
     changeTeamsEc(season) {
         this.getState().season = season;
-        this._callSubscriber(this._state);
+        this._callSubscriber(this.getState());
     },
 
     changeTeamsCl(season) {

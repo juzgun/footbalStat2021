@@ -17,14 +17,9 @@ const EuropeanChampionship = (props) => {
                     Список Команд
                 </div>
             </NavLink>
-            <NavLink to="/leagueDates" activeClassName={classes.activeLink}>
-                <div className={classes.europeanChampionshipLink}>
-                    Календарь лиги
-                </div>
-            </NavLink>
             <NavLink to="/leagueMatches/EC" activeClassName={classes.activeLink}>
                 <div className={`${classes.europeanChampionshipLink} ${classes.europeanChampionshipStat}`}>
-                    Матчи Лиги
+                    Календарь лиги
                 </div>
             </NavLink>
         </div >

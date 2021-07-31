@@ -3,20 +3,69 @@ import classes from "./CLStat.module.css"
 import Seasons from '../Sesons/Seasons';
 
 
-
 function CLStat(props) {
     let [error, setError] = useState(null);
     let [isLoaded, setIsLoaded] = useState(false);
     let [matches, setMatches] = useState([]);
     let [season, setSeason] = useState(props.season);
     let [count, setCount] = useState('');
+    let [dateRange, setDateRange] = useState(props.filterDates);
+    let [dateFrom, dateTo] = dateRange;
 
     let changeTeams = (year) => {
         setSeason(year);
     };
 
+    function formatDate(date) {
+        if (date !== null) {
+            let dd = date.getDate();
+            if (dd < 10) {
+                dd = '0' + dd
+            };
+
+            let mm = date.getMonth();
+            if (mm < 10) {
+                ++mm;
+                mm = '0' + mm;
+            } else {
+                ++mm
+            };
+
+            let yyyy = date.getFullYear();
+
+            return `${yyyy}-${mm}-${dd}`;
+        };
+
+
+    };
+
+    function changeDates(upload) {
+        let Range = [];
+        Range = upload;
+        console.log(dateRange[0]);
+        let dates = [];
+
+        if (Range[0] !== null) {
+            let a = formatDate(Range[0]);
+            dates[0] = a;
+        };
+
+        if (Range[1] !== null) {
+            let b = formatDate(Range[1]);
+            dates[1] = b;
+        };
+        debugger;
+        if (dates[1]) {
+            setDateRange(dates);
+        }
+
+
+    };
+
+
     useEffect(() => {
-        fetch(`https://api.football-data.org/v2/competitions/CL/matches?season=${season}`, {
+        debugger;
+        fetch(`https://api.football-data.org/v2/competitions/CL/matches?season=${season}&dateFrom=${dateFrom}&dateTo=${dateTo}`, {
             headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
         })
             .then(res => res.json())
@@ -31,7 +80,7 @@ function CLStat(props) {
                     setError(error);
                 }
             )
-    }, [season, isLoaded]);
+    }, [season, isLoaded, dateTo, dateFrom]);
     if (error) {
         return <p>` Error {error.message} try reload page later `</p>
     } else if (!isLoaded) {
@@ -40,7 +89,9 @@ function CLStat(props) {
         return (
             <div id="match_table" className="match_table">
                 <div className={classes.navbar}>
-                    <Seasons changeTeamsCl={changeTeams} />
+                    <Seasons
+                        changeTeamsCl={changeTeams}
+                        changeDates={changeDates} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
                 <table className="table">
@@ -84,7 +135,7 @@ function CLStat(props) {
                                 <td className="score">
                                     {item.score.fullTime.homeTeam}:{item.score.fullTime.awayTeam}
                                 </td>
-                            </tr>))};
+                            </tr>))}
                     </tbody>
                 </table>
             </div>
@@ -93,7 +144,9 @@ function CLStat(props) {
         return (
             <div id="match_table" className="match_table">
                 <div className={classes.navbar}>
-                    <Seasons changeTeamsCl={changeTeams} />
+                    <Seasons
+                        changeTeamsCl={changeTeams}
+                        changeDates={changeDates} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
                 <table className="table">

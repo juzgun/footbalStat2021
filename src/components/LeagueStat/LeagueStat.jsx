@@ -11,10 +11,12 @@ const LeagueStat = (props) => {
             <Switch>
                 <Route strict path="/leagueMatches/CL" render={() => <CLStat
                     changeTeamsCl={props.changeTeamsCl}
-                    season={props.season} />} />
+                    season={props.season}
+                    filterDates={props.filterDates} />} />
                 <Route path="/leagueMatches/EC" render={() => <ECStat
                     changeTeamsEc={props.changeTeamsEc}
-                    season={props.season} />} />
+                    season={props.season}
+                    filterDates={props.filterDates} />} />
             </Switch>
         </div>
     );

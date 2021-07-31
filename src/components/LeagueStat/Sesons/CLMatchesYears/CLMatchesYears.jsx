@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './CLMatchesYears.module.css';
+import DatePicker from 'react-datepicker';
+import ChooseDateRange from '../ChooseDateRange/ChooseDateRange';
 
 
 
 export default class CLMatchesYears extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -18,6 +21,7 @@ export default class CLMatchesYears extends Component {
         this.changeTeamsCl = (event) => {
             this.props.changeTeamsCl(event.target.dataset.season);
         };
+        this.changeDates = this.props.changeDates;
     }
 
     async componentDidMount() {
@@ -53,19 +57,24 @@ export default class CLMatchesYears extends Component {
             return <p>` Loading... `</p>
         } else {
             return (
-                <ul>
-                    {items.map(item => (
-                        <div key={item.id}>
-                            <li>
-                                <NavLink to={`/leagueMatches/CL/${item.startDate.slice(0, 4)}`}>
-                                    <button key={item.endDate} data-season={item.startDate.slice(0, 4)} onClick={this.changeTeamsCl}>
-                                        {item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}
-                                    </button>
-                                </NavLink>
-                            </li></div>
+                <div>
+                    <ul>
+                        {items.map(item => (
+                            <div key={item.id}>
+                                <li>
+                                    <NavLink to={`/leagueMatches/CL/${item.startDate.slice(0, 4)}`}>
+                                        <button key={item.endDate} data-season={item.startDate.slice(0, 4)} onClick={this.changeTeamsCl}>
+                                            {item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}
+                                        </button>
+                                    </NavLink>
+                                </li>
+                            </div>
+                        ))}
+                    </ul>
+                    <div>Filter</div>
+                    <ChooseDateRange changeDates={this.changeDates} />
+                </div>
 
-                    ))}
-                </ul>
             )
         }
     }

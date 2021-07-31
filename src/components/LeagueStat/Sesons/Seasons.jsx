@@ -15,9 +15,11 @@ const Seasons = (props) => {
                 </div>
                 <Switch>
                     <Route path="/leagueMatches/CL" render={() => <CLMatchesYears
-                        changeTeamsCl={props.changeTeamsCl} />} />
+                        changeTeamsCl={props.changeTeamsCl}
+                        changeDates={props.changeDates} />} />
                     <Route path="/leagueMatches/EC" render={() => <ECMatchesYears
-                        changeTeamsEc={props.changeTeamsEc} />} />
+                        changeTeamsEc={props.changeTeamsEc}
+                        changeDates={props.changeDates} />} />
                     <Route path="/commands/chamionleague/" render={() => <CLYears
                         showCommands={props.showCommands} />} />
                     <Route path="/commands/eurochampionats/" render={() => <ECYears
