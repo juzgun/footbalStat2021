@@ -7,6 +7,7 @@ import Seasons from './../../LeagueStat/Sesons/Seasons';
 let EuroLeague = (props) => {
 
     let [season, setSeason] = useState(props.season);
+    const apiKey = props.apiKey;
 
     let showCommands = (event) => {
         debugger;
@@ -20,11 +21,15 @@ let EuroLeague = (props) => {
                     Список Команд
                 </div>
                 <Seasons
-                    showCommands={showCommands} />
+                    showCommands={showCommands}
+                    apiKey={apiKey} />
                 <div className={classes.euroLeagueItem}>
                     European Chanpionship
                     <div>
-                        <EuroCommands season={season} showTeamMatches={props.showTeamMatches} />
+                        <EuroCommands
+                            season={season}
+                            showTeamMatches={props.showTeamMatches}
+                            apiKey={apiKey} />
                     </div>
                 </div>
             </div>
@@ -38,11 +43,15 @@ let EuroLeague = (props) => {
                 Список Команд
             </div>
             <Seasons
-                showCommands={setSeason} />
+                showCommands={setSeason}
+                apiKey={apiKey} />
             <div className={classes.euroLeagueItem}>
                 European Chanpionship
                 <div>
-                    <EuroCommands season={season} showTeamMatches={props.showTeamMatches} />
+                    <EuroCommands
+                        season={season}
+                        showTeamMatches={props.showTeamMatches}
+                        apiKey={apiKey} />
                 </div>
             </div>
         </div>

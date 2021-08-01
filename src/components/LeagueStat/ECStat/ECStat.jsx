@@ -11,8 +11,10 @@ function ECStat(props) {
     let [count, setCount] = useState('');
     let [dateRange, setDateRange] = useState(props.filterDates);
     let [dateFrom, dateTo] = dateRange;
+    const apiKey = props.apiKey;
 
     let changeTeams = (year) => {
+        setDateRange(['', '']);
         setSeason(year);
     };
 
@@ -63,7 +65,7 @@ function ECStat(props) {
 
     useEffect(() => {
         fetch(`https://api.football-data.org/v2/competitions/EC/matches?season=${season}&dateFrom=${dateFrom}&dateTo=${dateTo}`, {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+            headers: { 'x-Auth-Token': apiKey }
         })
             .then(res => res.json())
             .then(
@@ -73,7 +75,7 @@ function ECStat(props) {
                     setCount(result.count);
                 },
                 (error) => {
-                    isLoaded(true);
+                    setIsLoaded(true);
                     setError(error);
                 }
             )
@@ -88,7 +90,8 @@ function ECStat(props) {
                 <div className={classes.navbar}>
                     <Seasons
                         changeTeamsEc={changeTeams}
-                        changeDates={changeDates} />
+                        changeDates={changeDates}
+                        apiKey={props.apiKey} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
                 <table className="table">
@@ -120,7 +123,7 @@ function ECStat(props) {
                                         <span className="ls-only">{item.homeTeam.name}</span>
                                     </span>
                                     <span className="awayTeam">
-                                        <span className="ls-only">vs.</span>
+                                        <span className="ls-only">&nbsp;vs.</span>
                                         <span className="sm-only">-</span>
                                         {/* <img className="flag_matchview" src=""></img> */}
                                         <span className="ls-only">{item.awayTeam.name}</span>
@@ -132,7 +135,7 @@ function ECStat(props) {
                                 <td className="score">
                                     {item.score.fullTime.homeTeam}:{item.score.fullTime.awayTeam}
                                 </td>
-                            </tr>))};
+                            </tr>))}
                     </tbody>
                 </table>
             </div>
@@ -143,7 +146,8 @@ function ECStat(props) {
                 <div className={classes.navbar}>
                     <Seasons
                         changeTeamsEc={changeTeams}
-                        changeDates={changeDates} />
+                        changeDates={changeDates}
+                        apiKey={props.apiKey} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
                 <table className="table">

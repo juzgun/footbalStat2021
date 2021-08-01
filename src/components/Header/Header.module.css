@@ -1,4 +1,8 @@
 .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     width: 1200px;
     height: 8vh;
     margin: 1vh 0;
@@ -7,3 +11,4 @@
     text-align: center;
     padding: auto;
 }
+

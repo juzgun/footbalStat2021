@@ -12,6 +12,7 @@ export default class ECMatchesYears extends Component {
             error: null,
             isLoaded: false,
             items: [],
+            apiKey: props.apiKey
         };
         this.changeTeamsEc = (event) => {
             props.changeTeamsEc(event.target.dataset.season);
@@ -22,7 +23,7 @@ export default class ECMatchesYears extends Component {
 
     async componentDidMount() {
         await fetch('https://api.football-data.org/v2/competitions/EC', {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+            headers: { 'x-Auth-Token': this.props.apiKey }
         })
             .then(res => res.json())
             .then(
@@ -42,6 +43,7 @@ export default class ECMatchesYears extends Component {
     }
 
     changeTeamsEc = (event) => {
+        debugger;
         this.props.changeTeamsEc(event.target.dataset.season);
     };
 
@@ -59,8 +61,8 @@ export default class ECMatchesYears extends Component {
                             <div key={item.id}>
                                 <li>
                                     <NavLink to={`/leagueMatches/EC/${item.startDate.slice(0, 4)}`}>
-                                        <button key={item.endDate} data-season={item.startDate.slice(0, 4)} onClick={this.changeTeamsCl}>
-                                            {item.startDate.slice(0, 4)} - {item.endDate.slice(0, 4)}
+                                        <button key={item.endDate} data-season={item.startDate.slice(0, 4)} onClick={this.changeTeamsEc}>
+                                            {item.startDate.slice(0, 4)}
                                         </button>
                                     </NavLink>
                                 </li>

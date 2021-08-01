@@ -11,8 +11,10 @@ function CLStat(props) {
     let [count, setCount] = useState('');
     let [dateRange, setDateRange] = useState(props.filterDates);
     let [dateFrom, dateTo] = dateRange;
+    const apiKey = props.apiKey;
 
     let changeTeams = (year) => {
+        setDateRange(['', '']);
         setSeason(year);
     };
 
@@ -66,7 +68,7 @@ function CLStat(props) {
     useEffect(() => {
         debugger;
         fetch(`https://api.football-data.org/v2/competitions/CL/matches?season=${season}&dateFrom=${dateFrom}&dateTo=${dateTo}`, {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+            headers: { 'x-Auth-Token': apiKey }
         })
             .then(res => res.json())
             .then(
@@ -76,7 +78,7 @@ function CLStat(props) {
                     setCount(result.count);
                 },
                 (error) => {
-                    isLoaded(true);
+                    setIsLoaded(true);
                     setError(error);
                 }
             )
@@ -87,26 +89,27 @@ function CLStat(props) {
         return <p>` Loading... `</p>
     } else if (matches) {
         return (
-            <div id="match_table" className="match_table">
+            <div className={classes.stat}>
                 <div className={classes.navbar}>
                     <Seasons
                         changeTeamsCl={changeTeams}
-                        changeDates={changeDates} />
+                        changeDates={changeDates}
+                        apiKey={props.apiKey} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
-                <table className="table">
+                <table className={classes.table}>
                     <thead>
                         <tr>
                             <th>Date</th>
                             <th>MD</th>
                             <th></th>
                             <th>Fixture</th>
-                            <th className="xls-only">Odds(1/x/2)</th><th>Score</th>
+                            <th className={classes.odds}>Odds(1/x/2)</th><th>Score</th>
                         </tr>
                     </thead>
                     <tbody>
                         {matches.map(item => (
-                            <tr id="6123" className="open_match_view" key={item.id}>
+                            <tr className="open_match_view" key={item.id}>
                                 <td className="datetime">
                                     <span className="match_date ls-only">{item.utcDate}</span>
                                     <span className="badge badge-pill badge-primary">{item.status}</span>
@@ -123,7 +126,7 @@ function CLStat(props) {
                                         <span className="ls-only">{item.homeTeam.name}</span>
                                     </span>
                                     <span className="awayTeam">
-                                        <span className="ls-only">vs.</span>
+                                        <span className="ls-only">&nbsp;vs.</span>
                                         <span className="sm-only">-</span>
                                         {/* <img className="flag_matchview" src=""></img> */}
                                         <span className="ls-only">{item.awayTeam.name}</span>
@@ -146,7 +149,8 @@ function CLStat(props) {
                 <div className={classes.navbar}>
                     <Seasons
                         changeTeamsCl={changeTeams}
-                        changeDates={changeDates} />
+                        changeDates={changeDates}
+                        apiKey={props.apiKey} />
                 </div>
                 <div className={classes.count}>{count} matches in selection</div>
                 <table className="table">

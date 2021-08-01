@@ -10,23 +10,28 @@ function CLCommands(props) {
     let [items, setItems] = useState([]);
     let [season, setSeason] = useState(props.season);
     let teamLink = React.createRef();
+    const apiKey = props.apiKey;
 
     let showTeamMatches = (event) => {
-        props.showTeamMatches(event.target.dataset.id);
+        props.showTeamMatches(event.target.dataset.id, event.target.dataset.season);
     };
 
     useEffect(() => {
         fetch(`https://api.football-data.org/v2/competitions/CL/teams?season=${props.season}`, {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+            headers: { 'x-Auth-Token': apiKey }
         })
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
                     setItems(result.teams);
+                    if (!result.errorCode) {
+                        setSeason((result.season.startDate).slice(0, 4));
+                    };
+
                 },
                 (error) => {
-                    isLoaded(true);
+                    setIsLoaded(true);
                     setError(error);
                 }
             )
@@ -44,6 +49,7 @@ function CLCommands(props) {
                         <NavLink to={`/commandDates/${item.id}`} data={item.id} season={item.name}>
                             <button
                                 data-id={item.id}
+                                data-season={season}
                                 ref={teamLink}
                                 onClick={showTeamMatches}>
                                 Матчи

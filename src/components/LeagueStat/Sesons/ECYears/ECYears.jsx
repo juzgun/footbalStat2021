@@ -9,14 +9,16 @@ function ECYears(props) {
     let [isLoaded, setIsLoaded] = useState(false);
     let [items, setItems] = useState([]);
     let [season, setSeason] = useState(props.season);
+    const apiKey = props.apiKey;
 
     let showCommands = (event) => {
+        debugger;
         props.showCommands(event.target.dataset.season);
     };
 
     useEffect(() => {
         fetch(`https://api.football-data.org/v2/competitions/EC`, {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+            headers: { 'x-Auth-Token': apiKey }
         })
             .then(res => res.json())
             .then(
@@ -25,7 +27,7 @@ function ECYears(props) {
                     setItems(result.seasons);
                 },
                 (error) => {
-                    isLoaded(true);
+                    setIsLoaded(true);
                     setError(error);
                 }
             )
@@ -39,7 +41,7 @@ function ECYears(props) {
             <ul>
                 {items.map(item => (
                     <li key={item.id}>
-                        <NavLink to={`/commands/chamionleague/${item.startDate.slice(0, 4)}`}>
+                        <NavLink to={`/commands/eurochampionats/${item.startDate.slice(0, 4)}`}>
                             <button data-season={Number(item.startDate.slice(0, 4))} onClick={showCommands}>
                                 {item.startDate.slice(0, 4)}
                             </button>

@@ -14,11 +14,11 @@ const ChooseDateRange = (props) => {
     let [dateRange, setDateRange] = useState(['', '']);
     let [startDate, endDate] = dateRange;
 
+
     function changeDates(dateRange) {
         debugger;
         props.changeDates(dateRange);
         setDateRange(dateRange);
-        // console.log(`${((dateRange[0]).getFullYear())} - ${((dateRange[0]).getMonth())} - ${((dateRange[0]).getDate())}`)
     };
 
     return (

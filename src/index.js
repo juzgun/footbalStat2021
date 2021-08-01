@@ -14,7 +14,8 @@ let rerenderEntireTree = (state) => {
                 state={store.getState()}
                 showTeamMatches={store.showTeamMatches.bind(store)}
                 changeTeamsEc={store.changeTeamsEc.bind(store)}
-                changeTeamsCl={store.changeTeamsCl.bind(store)} />
+                changeTeamsCl={store.changeTeamsCl.bind(store)}
+                setApi={store.setApi.bind(store)} />
         </BrowserRouter>,
         document.getElementById('root')
     );

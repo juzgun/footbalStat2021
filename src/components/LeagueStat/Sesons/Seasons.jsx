@@ -16,14 +16,18 @@ const Seasons = (props) => {
                 <Switch>
                     <Route path="/leagueMatches/CL" render={() => <CLMatchesYears
                         changeTeamsCl={props.changeTeamsCl}
-                        changeDates={props.changeDates} />} />
+                        changeDates={props.changeDates}
+                        apiKey={props.apiKey} />} />
                     <Route path="/leagueMatches/EC" render={() => <ECMatchesYears
                         changeTeamsEc={props.changeTeamsEc}
-                        changeDates={props.changeDates} />} />
+                        changeDates={props.changeDates} 
+                        apiKey={props.apiKey} />} />
                     <Route path="/commands/chamionleague/" render={() => <CLYears
-                        showCommands={props.showCommands} />} />
+                        showCommands={props.showCommands} 
+                        apiKey={props.apiKey} />} />
                     <Route path="/commands/eurochampionats/" render={() => <ECYears
-                        changeTeamsEc={props.changeTeamsEc} />} />
+                        showCommands={props.showCommands} 
+                        apiKey={props.apiKey} />} />
                 </Switch>
 
             </div>

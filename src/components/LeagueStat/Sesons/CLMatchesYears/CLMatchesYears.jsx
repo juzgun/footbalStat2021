@@ -13,7 +13,8 @@ export default class CLMatchesYears extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            apiKey: props.apiKey
         };
         // this.changeTeamsCl = (event) => {
         //     this.props.changeTeamsCl(event.target.dataset.season);
@@ -26,7 +27,7 @@ export default class CLMatchesYears extends Component {
 
     async componentDidMount() {
         await fetch("https://api.football-data.org/v2/competitions/CL", {
-            headers: { 'x-Auth-Token': '5dcd489dcd6842c68d4d7808b50209d9' }
+            headers: { 'x-Auth-Token': this.state.apiKey }
         })
             .then(res => res.json())
             .then(
