@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/testSimbirSoft/static/css/main.67e57e28.chunk.css",
-    "main.js": "/testSimbirSoft/static/js/main.35ffa8da.chunk.js",
-    "main.js.map": "/testSimbirSoft/static/js/main.35ffa8da.chunk.js.map",
+    "main.css": "/testSimbirSoft/static/css/main.616f0320.chunk.css",
+    "main.js": "/testSimbirSoft/static/js/main.6fdc9980.chunk.js",
+    "main.js.map": "/testSimbirSoft/static/js/main.6fdc9980.chunk.js.map",
     "runtime-main.js": "/testSimbirSoft/static/js/runtime-main.5dea9890.js",
     "runtime-main.js.map": "/testSimbirSoft/static/js/runtime-main.5dea9890.js.map",
     "static/css/2.824ac385.chunk.css": "/testSimbirSoft/static/css/2.824ac385.chunk.css",
-    "static/js/2.788a3df3.chunk.js": "/testSimbirSoft/static/js/2.788a3df3.chunk.js",
-    "static/js/2.788a3df3.chunk.js.map": "/testSimbirSoft/static/js/2.788a3df3.chunk.js.map",
+    "static/js/2.f9008fac.chunk.js": "/testSimbirSoft/static/js/2.f9008fac.chunk.js",
+    "static/js/2.f9008fac.chunk.js.map": "/testSimbirSoft/static/js/2.f9008fac.chunk.js.map",
     "static/js/3.80fe3827.chunk.js": "/testSimbirSoft/static/js/3.80fe3827.chunk.js",
     "static/js/3.80fe3827.chunk.js.map": "/testSimbirSoft/static/js/3.80fe3827.chunk.js.map",
     "index.html": "/testSimbirSoft/index.html",
     "static/css/2.824ac385.chunk.css.map": "/testSimbirSoft/static/css/2.824ac385.chunk.css.map",
-    "static/css/main.67e57e28.chunk.css.map": "/testSimbirSoft/static/css/main.67e57e28.chunk.css.map",
-    "static/js/2.788a3df3.chunk.js.LICENSE.txt": "/testSimbirSoft/static/js/2.788a3df3.chunk.js.LICENSE.txt",
+    "static/css/main.616f0320.chunk.css.map": "/testSimbirSoft/static/css/main.616f0320.chunk.css.map",
+    "static/js/2.f9008fac.chunk.js.LICENSE.txt": "/testSimbirSoft/static/js/2.f9008fac.chunk.js.LICENSE.txt",
     "static/media/CLlogo.0fb9167f.jpg": "/testSimbirSoft/static/media/CLlogo.0fb9167f.jpg",
     "static/media/EClogo.af029d05.png": "/testSimbirSoft/static/media/EClogo.af029d05.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5dea9890.js",
     "static/css/2.824ac385.chunk.css",
-    "static/js/2.788a3df3.chunk.js",
-    "static/css/main.67e57e28.chunk.css",
-    "static/js/main.35ffa8da.chunk.js"
+    "static/js/2.f9008fac.chunk.js",
+    "static/css/main.616f0320.chunk.css",
+    "static/js/main.6fdc9980.chunk.js"
   ]
 }
