@@ -22,8 +22,23 @@
     display: flex;
     flex-direction: column;
     background-color: rgb(0, 229, 255);
-    margin: 10px;
-    width: 400px;
+    margin: 10px auto;
+    width: 80%;
+}
+.uefaLeagueItem li {
+    width: 95%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    border-top: solid 2px lightgray;
+    padding: 4px 0px 4px 4px;
+    margin-right: -10px;
+}
+
+.uefaLeagueItem button {
+    margin: 4px;
+    margin-right: 0;
 }
 
 .uefaLeagueTitle {
@@ -31,3 +46,29 @@
     height: 20px;
 }
 
+
+@media only screen and (max-width: 1200px) {
+    .uefaLeague {
+        max-width: 992px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .uefaLeague {
+        max-width: 767px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .uefaLeague {
+        max-width: 480px;
+    }
+    .uefaLeagueItem {
+        width: 92%;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .uefaLeague {
+        max-width: 320px;
+        margin: 10px 0 0 0;
+    }
+}

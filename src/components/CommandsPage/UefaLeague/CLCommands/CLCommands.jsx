@@ -52,7 +52,7 @@ function CLCommands(props) {
                                 data-season={season}
                                 ref={teamLink}
                                 onClick={showTeamMatches}>
-                                Матчи
+                                Matches
                             </button>
                         </NavLink>
                     </li>

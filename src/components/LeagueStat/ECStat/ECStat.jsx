@@ -56,7 +56,6 @@ function ECStat(props) {
             let b = formatDate(Range[1]);
             dates[1] = b;
         };
-        debugger;
         if (dates[1]) {
             setDateRange(dates);
         }

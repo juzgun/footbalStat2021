@@ -4,7 +4,6 @@ import './TeamMatchesData.module.css';
 export class TeamMatshesData extends Component {
 
     constructor(props) {
-        debugger;
         super(props);
         this.state = {
             error: null,

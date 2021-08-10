@@ -10,7 +10,6 @@ let UefaLeague = (props) => {
     let apiKey = props.apiKey;
 
     let showCommands = (event) => {
-        debugger;
         props.season = event;
         console.log(props.season);
     };
@@ -43,7 +42,7 @@ let UefaLeague = (props) => {
     return (
         <div className={classes.uefaLeague}>
             <div className={classes.uefaLeagueTitle}>
-                Список Команд
+                Commands List
             </div>
             <Seasons
                 showCommands={setSeason}

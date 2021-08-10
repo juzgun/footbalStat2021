@@ -6,9 +6,10 @@
     flex-wrap: nowrap;
     align-items: center;
     background-color: rgb(255, 174, 174);
-    margin: 10px;
+    margin: 10px auto;
+    padding-bottom: 30px;
     width: 1180px;
-    height: 80vh;
+    /* height: 80vh; */
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
@@ -21,6 +22,7 @@
 
 .leaguesWrapper {
     display: flex;
+    align-items: center;
 }
 
 .leaguesItem {
@@ -35,4 +37,37 @@
     vertical-align: middle;
     font-size: 24px;
     line-height: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .leagues, .leaguesTitle {
+        max-width: 992px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .leagues, .leaguesTitle {
+        max-width: 767px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .leagues, .leaguesTitle {
+        max-width: 480px;
+        font-size: 12px;
+    }
+    .leaguesWrapper {
+        flex-direction: column;
+    }
+    .leaguesTitle {
+        font-size: 14px;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .leagues, .leaguesTitle {
+        max-width: 320px;
+    }
+    .leaguesWrapper {
+        max-width: 320px;
+    }
 }

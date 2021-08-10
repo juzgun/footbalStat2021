@@ -12,7 +12,6 @@ function ECYears(props) {
     const apiKey = props.apiKey;
 
     let showCommands = (event) => {
-        debugger;
         props.showCommands(event.target.dataset.season);
     };
 

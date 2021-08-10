@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import classes from './ChooseDateRange.module.css';
 
 
@@ -16,13 +15,12 @@ const ChooseDateRange = (props) => {
 
 
     function changeDates(dateRange) {
-        debugger;
         props.changeDates(dateRange);
         setDateRange(dateRange);
     };
 
     return (
-        <div>
+        <div className={classes.filter}>
             <DatePicker
                 dateFormat="yyyy-MM-dd"
                 selectsRange={true}

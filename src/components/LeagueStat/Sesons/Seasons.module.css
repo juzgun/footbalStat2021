@@ -22,8 +22,42 @@
     flex-wrap: wrap;
     justify-content: center;
     list-style-type: none;
+    padding: 0 10px;
+    margin: 0;
 }
 
 .seasonsItem ul li {
     margin: 3px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .seasons {
+        max-width: 992px;
+    }
+    /* .seasonsItem {
+
+    }
+    .seasonsItem ul {
+
+    }
+    .seasonsItem ul li {
+
+    } */
+}
+
+@media only screen and (max-width: 991px) {
+    .seasons {
+        max-width: 767px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .seasons {
+        max-width: 480px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .seasons {
+        max-width: 320px;
+        font-size: 10px;
+    }
 }

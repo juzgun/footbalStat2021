@@ -1,8 +1,32 @@
 .flex {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 1200px;
     margin: 0 auto;
-    background-color: yellow;
+    background-color: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 1200px) {
+    .flex {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .flex {
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .flex {
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .flex {
+        max-width: 100%;
+    }
 }

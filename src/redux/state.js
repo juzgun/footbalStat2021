@@ -26,7 +26,6 @@ let store = {
     },
 
     changeTeamsCl(season) {
-        debugger;
         this.getState().season = season;
         // this._clearFilter();
         this._callSubscriber(this.getState());

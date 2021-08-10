@@ -50,3 +50,52 @@
     text-decoration: none;
 }
 
+
+@media only screen and (max-width: 1200px) {
+    .uefaChampionsLeague {
+        max-width: 280px;
+    }
+    .uefaChampionsLeague img {
+        width: 144px;
+    }
+    .uefaChampionsLeagueTitle {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .uefaChampionsLeagueLink, .uefaChampionsLeagueStat {
+        width: 150px;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .uefaChampionsLeague {
+        max-height: 280px;
+    }
+    .uefaChampionsLeague img {
+        height: 88px;
+    }
+    .uefaChampionsLeagueTitle {
+        max-width: 260px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .uefaChampionsLeagueLink, .uefaChampionsLeagueStat {
+        width: 130px;
+        padding: 3px;
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .uefaChampionsLeague {
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .uefaChampionsLeague {
+        margin: 0;
+    }
+}
+
+

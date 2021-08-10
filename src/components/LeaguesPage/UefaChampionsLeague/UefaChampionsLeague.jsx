@@ -14,12 +14,12 @@ const UefaChampionsLeague = (props) => {
 
             <NavLink to="/commands/chamionleague" activeClassName={classes.activeLink}>
                 <div className={classes.uefaChampionsLeagueLink}>
-                    Список Команд
+                    Commands List
                 </div>
             </NavLink>
             <NavLink to="/leagueMatches/CL" activeClassName={classes.activeLink}>
                 <div className={`${classes.uefaChampionsLeagueLink} ${classes.uefaChampionsLeagueStat}`}>
-                    Календарь лиги
+                    Calendar of league
                 </div>
             </NavLink>
         </div>

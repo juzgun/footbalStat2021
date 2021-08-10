@@ -10,7 +10,6 @@ let EuroLeague = (props) => {
     const apiKey = props.apiKey;
 
     let showCommands = (event) => {
-        debugger;
         props.season = event;
     };
 
@@ -18,7 +17,7 @@ let EuroLeague = (props) => {
         return (
             <div className={classes.euroLeague}>
                 <div className={classes.euroLeagueTitle}>
-                    Список Команд
+                    Commands List
                 </div>
                 <Seasons
                     showCommands={showCommands}

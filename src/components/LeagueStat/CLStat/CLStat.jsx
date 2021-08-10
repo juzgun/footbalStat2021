@@ -56,7 +56,6 @@ function CLStat(props) {
             let b = formatDate(Range[1]);
             dates[1] = b;
         };
-        debugger;
         if (dates[1]) {
             setDateRange(dates);
         }
@@ -66,7 +65,6 @@ function CLStat(props) {
 
 
     useEffect(() => {
-        debugger;
         fetch(`https://api.football-data.org/v2/competitions/CL/matches?season=${season}&dateFrom=${dateFrom}&dateTo=${dateTo}`, {
             headers: { 'x-Auth-Token': apiKey }
         })
@@ -112,6 +110,8 @@ function CLStat(props) {
                             <tr className="open_match_view" key={item.id}>
                                 <td className="datetime">
                                     <span className="match_date ls-only">{item.utcDate}</span>
+                                    &nbsp;
+                                    &nbsp;
                                     <span className="badge badge-pill badge-primary">{item.status}</span>
                                 </td>
                                 <td className="matchday">

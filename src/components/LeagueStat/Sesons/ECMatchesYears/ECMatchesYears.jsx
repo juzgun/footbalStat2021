@@ -43,7 +43,6 @@ export default class ECMatchesYears extends Component {
     }
 
     changeTeamsEc = (event) => {
-        debugger;
         this.props.changeTeamsEc(event.target.dataset.season);
     };
 

@@ -20,3 +20,27 @@ tbody tr:nth-child(odd) {
     margin: 5px;
     text-align: center;
 }
+
+
+@media only screen and (max-width: 1200px) {
+  table, .count {
+      max-width: 992px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  table, .count {
+      max-width: 767px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  table, .count {
+      max-width: 480px;
+  }
+}
+@media only screen and (max-width: 479px) {
+  table, .count {
+      max-width: 320px;
+      font-size: 6px;
+  }
+}

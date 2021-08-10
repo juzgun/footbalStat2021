@@ -50,3 +50,52 @@
     text-decoration: none;
     color: #000;
 }
+
+@media only screen and (max-width: 1200px) {
+    .europeanChampionship {
+        max-width: 280px;
+    }
+    .europeanChampionship img {
+        height: 90px;
+    }
+    .europeanChampionshipTitle {
+        max-width: 260px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .europeanChampionshipLink, .europeanChampionshipStat {
+        width: 150px;
+        padding: 10px;
+        font-size: 16px;
+
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .europeanChampionship {
+        max-height: 280px;
+    }
+    .europeanChampionship img {
+        height: 80px;
+    }
+    .europeanChampionshipTitle {
+        max-width: 260px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .europeanChampionshipLink, .europeanChampionshipStat {
+        width: 130px;
+        padding: 3px;
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .europeanChampionship {
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .europeanChampionship {
+        margin: 0;
+    }
+}

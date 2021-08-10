@@ -1,9 +1,10 @@
 .commandDates {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    background-color: rgb(131, 168, 40);
+    background-color: rgb(236, 255, 187);
     margin: 0 0 0 10px;
-    width: 930px;
+    width: 1200px;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
@@ -13,3 +14,27 @@
     -moz-box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
     box-shadow: -5px -5px 20px -9px rgba(53, 85, 109, 0.6);
 }
+
+@media only screen and (max-width: 1200px) {
+    .commandDates {
+        max-width: 992px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .commandDates {
+        max-width: 767px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .commandDates {
+        max-width: 480px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .commandDates {
+        max-width: 320px;
+        font-size: 12px;
+    }
+}
+

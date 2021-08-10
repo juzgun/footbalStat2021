@@ -8,7 +8,7 @@ const CommandDates = (props) => {
     return (
         <div className={classes.commandDates}>
             <div>
-                Календарь Команды
+                Calendar of command
             </div>
             <div className={classes.commandDatesItem}>
                 <TeamMatshesData
