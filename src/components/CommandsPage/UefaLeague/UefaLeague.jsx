@@ -9,12 +9,12 @@ let UefaLeague = (props) => {
     let [season, setSeason] = useState(props.season);
     let apiKey = props.apiKey;
 
-    let showCommands = (event) => {
-        props.season = event;
-        console.log(props.season);
-    };
-
     useEffect(() => {
+
+        let showCommands = (event) => {
+            props.season = event;
+        };
+
         return (
             <div className={classes.uefaLeague}>
                 <div className={classes.uefaLeagueTitle}>
@@ -34,7 +34,7 @@ let UefaLeague = (props) => {
                 </div>
             </div>
         );
-    }, [props.showTeamMatches, season]);
+    }, [props.showTeamMatches, season, apiKey, props]);
 
 
 

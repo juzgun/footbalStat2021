@@ -2,23 +2,28 @@ tbody tr:nth-child(odd) {
     background-color: #fdfdfd;
   }
   
-  tbody tr:nth-child(even) {
+tbody tr:nth-child(even) {
     background-color: #e9e9e9;
   }
   
-  tbody tr {
+tbody tr {
     background-color: rgb(215, 215, 215);
   }
   
-  table {
+table {
     width: 1140px;
     margin: 0 auto;
-    background-color: #d2d2d2;
+    background-color: #d2d2d274;
+    border-radius: 10px;
   }
 
   .count {
       margin: 5px;
       text-align: center;
+  }
+
+  .badge {
+      padding-left: 10px;
   }
 
 @media only screen and (max-width: 1200px) {
@@ -40,6 +45,6 @@ tbody tr:nth-child(odd) {
 @media only screen and (max-width: 479px) {
     table, .count {
         max-width: 320px;
-        font-size: 6px;
+        font-size: 12px;
     }
 }

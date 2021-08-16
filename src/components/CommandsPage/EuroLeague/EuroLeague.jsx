@@ -9,11 +9,12 @@ let EuroLeague = (props) => {
     let [season, setSeason] = useState(props.season);
     const apiKey = props.apiKey;
 
-    let showCommands = (event) => {
-        props.season = event;
-    };
-
     useEffect(() => {
+
+        let showCommands = (event) => {
+            props.season = event;
+        };
+
         return (
             <div className={classes.euroLeague}>
                 <div className={classes.euroLeagueTitle}>
@@ -33,7 +34,7 @@ let EuroLeague = (props) => {
                 </div>
             </div>
         );
-    }, [props.showTeamMatches, season]);
+    }, [props.showTeamMatches, season, apiKey, props]);
 
 
     return (

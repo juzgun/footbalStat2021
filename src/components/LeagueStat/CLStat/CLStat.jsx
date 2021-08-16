@@ -44,7 +44,6 @@ function CLStat(props) {
     function changeDates(upload) {
         let Range = [];
         Range = upload;
-        console.log(dateRange[0]);
         let dates = [];
 
         if (Range[0] !== null) {
@@ -80,7 +79,7 @@ function CLStat(props) {
                     setError(error);
                 }
             )
-    }, [season, isLoaded, dateTo, dateFrom]);
+    }, [season, isLoaded, dateTo, dateFrom, apiKey]);
     if (error) {
         return <p>` Error {error.message} try reload page later `</p>
     } else if (!isLoaded) {
@@ -109,10 +108,10 @@ function CLStat(props) {
                         {matches.map(item => (
                             <tr className="open_match_view" key={item.id}>
                                 <td className="datetime">
-                                    <span className="match_date ls-only">{item.utcDate}</span>
+                                    <span className="match_date ls-only">{item.utcDate.slice(0, 10).split('-').join(' ')}</span>
                                     &nbsp;
                                     &nbsp;
-                                    <span className="badge badge-pill badge-primary">{item.status}</span>
+                                    <span className={classes.badge}>{item.status}</span>
                                 </td>
                                 <td className="matchday">
                                     {item.matchday}

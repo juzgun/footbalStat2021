@@ -8,7 +8,7 @@ function TeamMatshesData(props) {
     let [isLoaded, setIsLoaded] = useState(false);
     let [items, setItems] = useState([]);
     let [season, setSeason] = useState(props.season);
-    let [teamid, setTeamId] = useState(props.teamid);
+    let [teamid] = useState(props.teamid);
     let [dateRange, setDateRange] = useState(['-01-01', '-12-31']);
     let [dateFrom, dateTo] = dateRange;
     const apiKey = props.apiKey;
@@ -38,7 +38,6 @@ function TeamMatshesData(props) {
     function changeDates(upload) {
         let Range = [];
         Range = upload;
-        console.log(dateRange[0]);
         let dates = [];
 
         if (Range[0] !== null) {
@@ -59,7 +58,7 @@ function TeamMatshesData(props) {
 
 
     useEffect(() => {
-        fetch(`https://api.football-data.org/v2/teams/${teamid}/matches?dateFrom=${season}${dateFrom}&dateTo=${season}${dateTo}`, {
+        fetch(`https://api.football-data.org/v2/teams/${teamid}/matches?dateFrom=${season}${dateFrom !== '-12-31' ? dateFrom : '-12-31'}&dateTo=${season}${dateTo !== '-12-31' ? dateTo : '-12-31'}`, {
             headers: { 'x-Auth-Token': apiKey }
         })
             .then(res => res.json())
@@ -78,7 +77,7 @@ function TeamMatshesData(props) {
                     setError(error);
                 }
             )
-    }, [season, isLoaded, teamid, dateTo]);
+    }, [season, isLoaded, teamid, dateTo, apiKey, dateFrom]);
 
     if (error) {
         return <p>` Error, please choose dates in ${season} season. `</p>
